@@ -1,0 +1,26 @@
+<p class="firstQuestion">Welcome! This special study timer will help you <br> ace your
+    upcoming exam. Research has shown <br> that
+    the best method of studying is to focus
+    for <br> 25 minutes straight followed  by a 5
+    minute break, <br> which is exactly how this 
+    timer is designed. In <br> terms of 30 minute
+    intervals, how long would you <br>    like to study today? </p>
+
+<div>
+    <h1>Timer</h1>
+    <input type="number" [(ngModel)]="sessions" placeholder="Number of Sessions">
+    <div *ngIf="!isRunning">
+        <button (click)="startTimer()" class="btn btn-start"><i class="fas fa-play"></i>Start</button>
+    </div>
+    <div *ngIf="isRunning">
+        <button (click)="stopTimer()" class="btn btn-stop"><i class="fas fa-stop"></i>Stop</button>
+    </div>
+    <div>
+        <button (click)="resetTimer()" class="btn btn-reset"><i class="fas fa-stop"></i>Reset</button>
+    </div>
+    <div class = timer>
+        {{ formatTime(timeLeft) }}
+    </div>
+    <div *ngIf="timerState === 'Study'">Study</div>
+    <div *ngIf="timerState === 'Break'">Break</div>
+</div>
